@@ -1,5 +1,15 @@
 <?php
 
+// path to MAMP where htdocs will be
+$pathToMamp = "/Applications/MAMP";
+// each project, with a name for GUI and a path for it
+$projects = array(
+  array("name"=>"P1WebForm", "path"=>"/Users/silent/Documents/Dropbox/Development/anders/P1-webform"),
+  array("name"=>"Mafia", "path"=>"/Users/silent/Documents/Dropbox/Development/WebSites/Trabalhos/Mafia")
+);
+// only edit this and below it, if you know what you are doing
+$symlinkName = "htdocs";
+
 function create_symlink($from, $to){
   // from some project files
   // to htdocs folder in Mamp
@@ -9,12 +19,6 @@ function doGui($command){
   $CD="CocoaDialog.app/Contents/MacOS/CocoaDialog";
   return shell_exec($CD." ".$command);
 }
-
-$pathToMamp = "/Applications/MAMP";
-$projects = array(
-  array("name"=>"P1WebForm", "loc"=>"/Users/silent/Documents/Dropbox/Development/anders/P1-webform"),
-  array("name"=>"Mafia", "loc"=>"/Users/silent/Documents/Dropbox/Development/WebSites/Trabalhos/Mafia")
-);
 
 $code  = ' dropdown';
 $code .= ' --title "Preferred Project"';
@@ -34,9 +38,7 @@ $item = $ret[1];
 if($button == 1){
   $project = $projects[$item];
   // delete htdocs, will fail if its directory and thats good
-  shell_exec('rm '.$pathToMamp.'/htdocs');
-  create_symlink($project[loc], $pathToMamp.'/htdocs');
+  shell_exec('rm '.$pathToMamp.'/'.$symlinkName);
+  create_symlink($project[path], $pathToMamp.'/'.$symlinkName);
   doGui('ok-msgbox --no-cancel --text "Changed to "'.$project["name"]);
 }
-
-die();

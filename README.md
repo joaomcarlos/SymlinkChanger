@@ -12,6 +12,9 @@ After you have changed all the settings to your liking, open up Platypus.app
 App Name: SymlinkChanger (or what ever you want really)
 Script Type: PHP
 Script Path : Press "Select..." and navigate to the SymlinkChanger.php you edited earlier.
+
+Output: None (dont need any other output than GUI)
+
 Uncheck "Remain running after initial execution", all other checks its ok to leave default.
 
 Identifier: "org.silent.SymlinkChanger"
