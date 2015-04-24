@@ -20,6 +20,9 @@ Uncheck "Remain running after initial execution", all other checks its ok to lea
 Identifier: "org.silent.SymlinkChanger"
 Author: "Joao Carlos" (please leave my name on)
 
+On the "Files to be bundled into the application's Resources folder",
+drag n drop the "CocoaDialog.app" file into the listbox so its available at runtime.
+
 Press Create.
 
 After that you get a nice application that asks you what to change your symlink to and does it.
